@@ -47,6 +47,12 @@ A B.Tech CSE student at **SRM IST, Ramapuram** (CGPA **8.88**) who spends the su
   <img alt="The Powerpuff Formula: languages, frameworks, libraries and tools" src="assets/cn/skills.svg" width="100%">
 </p>
 
+## Adventure Log: Contributions
+
+<p align="center">
+  <img alt="Contribution graph with Finn and Jake walking across the Land of Ooo" src="assets/cn/contributions.svg" width="100%">
+</p>
+
 ## Special Episodes: Hackathons
 
 | Event | What went down |

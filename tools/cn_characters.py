@@ -231,3 +231,65 @@ def darwin():
         f'<ellipse cx="2" cy="-40" rx="6" ry="4" fill="#ff6a8a" {S}/>',
     ]
     return _bob("".join(o), 3, 1.3)
+
+
+def _swing(inner, pivot, amp=18, dur=.5, phase=0.0):
+    """Leg/arm swing around a pivot for a walk cycle."""
+    px, py = pivot
+    vals = f"{-amp} {px} {py};{amp} {px} {py};{-amp} {px} {py}"
+    return (f'<g>{inner}<animateTransform attributeName="transform" type="rotate" values="{vals}" '
+            f'dur="{dur}s" begin="-{phase * dur}s" repeatCount="indefinite"/></g>')
+
+
+def finn(walking=True):
+    """Hero kid: white bear-eared hat, light blue tee, dark blue shorts, green backpack."""
+    shirt, shorts, pack = "#3fa9f5", "#1f4fa8", "#6cc04a"
+    legs = [_limb(-6, -26, -6, -6, SKIN, 4), _limb(6, -26, 6, -6, SKIN, 4)]
+    feet = [f'<ellipse cx="-7" cy="-3" rx="6" ry="3.5" fill="{INK}"/>', f'<ellipse cx="7" cy="-3" rx="6" ry="3.5" fill="{INK}"/>']
+    if walking:
+        leg_l = _swing(legs[0] + feet[0], (-6, -26), 20, .5, 0)
+        leg_r = _swing(legs[1] + feet[1], (6, -26), 20, .5, .5)
+        arm_l = _swing(_limb(-13, -54, -22, -30, SKIN, 3.5), (-13, -54), 22, .5, .5)
+        arm_r = _swing(_limb(13, -54, 22, -30, SKIN, 3.5), (13, -54), 22, .5, 0)
+    else:
+        leg_l, leg_r = legs[0] + feet[0], legs[1] + feet[1]
+        arm_l, arm_r = _limb(-13, -54, -22, -30, SKIN, 3.5), _limb(13, -54, 22, -30, SKIN, 3.5)
+    o = [
+        f'<rect x="-22" y="-58" width="12" height="26" rx="5" fill="{pack}" {S}/>',
+        leg_l, leg_r,
+        f'<rect x="-13" y="-34" width="26" height="12" rx="3" fill="{shorts}" {S}/>',
+        arm_l,
+        f'<rect x="-14" y="-58" width="28" height="26" rx="5" fill="{shirt}" {S}/>',
+        f'<path d="M-12 -57 L-4 -40 M12 -57 L4 -40" stroke="#4f8f2f" stroke-width="3"/>',
+        arm_r,
+        f'<circle cx="-14" cy="-102" r="6" fill="#ffffff" {S}/><circle cx="14" cy="-102" r="6" fill="#ffffff" {S}/>',
+        f'<rect x="-21" y="-104" width="42" height="46" rx="18" fill="#ffffff" {S}/>',
+        f'<ellipse cx="0" cy="-80" rx="14" ry="11.5" fill="{SKIN}" {S}/>',
+        f'<circle cx="-5" cy="-83" r="2" fill="{INK}"/><circle cx="5" cy="-83" r="2" fill="{INK}"/>',
+        f'<path d="M-6 -77 Q0 -69 6 -77 Z" fill="#7a1f1f" stroke="{INK}" stroke-width="1.8" stroke-linejoin="round"/>',
+        '<path d="M-3 -77 H3" stroke="#ffffff" stroke-width="1.6"/>',
+    ]
+    return "".join(o)
+
+
+def jake(walking=True):
+    """Yellow dog: wide bean body, big shiny eyes, droopy jowls, stubby legs."""
+    gold, shade = "#f7b928", "#d9951a"
+    legs = []
+    for i, x in enumerate((-16, -6, 8, 18)):
+        leg = _limb(x, -14, x, -3, gold, 4)
+        legs.append(_swing(leg, (x, -14), 22, .5, i % 2 * .5) if walking else leg)
+    o = [
+        f'<path d="M-30 -24 Q-44 -30 -42 -42" stroke="{INK}" stroke-width="8" fill="none" stroke-linecap="round"/>',
+        f'<path d="M-30 -24 Q-44 -30 -42 -42" stroke="{gold}" stroke-width="4" fill="none" stroke-linecap="round"/>',
+        *legs,
+        f'<path d="M-32 -16 Q-34 -38 -8 -40 H14 Q32 -40 30 -16 Q30 -10 22 -10 H-24 Q-32 -10 -32 -16 Z" fill="{gold}" {S}/>',
+        f'<path d="M4 -40 Q2 -66 22 -66 Q42 -66 40 -44 Q40 -32 22 -32 Q6 -32 4 -40 Z" fill="{gold}" {S}/>',
+        f'<path d="M10 -60 Q4 -58 6 -50 M36 -60 Q42 -58 40 -50" stroke="{INK}" stroke-width="3" fill="none" stroke-linecap="round"/>',
+        f'<circle cx="15" cy="-52" r="7.5" fill="#ffffff" {S}/><circle cx="30" cy="-52" r="7.5" fill="#ffffff" {S}/>',
+        f'<circle cx="16" cy="-51" r="3.4" fill="{INK}"/><circle cx="31" cy="-51" r="3.4" fill="{INK}"/>',
+        '<circle cx="17.5" cy="-53" r="1.3" fill="#fff"/><circle cx="32.5" cy="-53" r="1.3" fill="#fff"/>',
+        f'<path d="M14 -42 Q18 -34 23 -38 Q28 -34 32 -42" fill="{shade}" stroke="{INK}" stroke-width="2.2" stroke-linejoin="round"/>',
+        f'<ellipse cx="23" cy="-43" rx="4" ry="2.6" fill="{INK}"/>',
+    ]
+    return "".join(o)
