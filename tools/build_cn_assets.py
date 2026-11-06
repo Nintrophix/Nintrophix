@@ -1,8 +1,8 @@
 """Generates the Cartoon-Network-themed SVGs for the GitHub profile README.
 
-Everything is original vector art in a Saturday-morning cartoon style: thick
-black outlines, offset drop shadows, checkerboard bumpers. Characters are
-referenced by name only (no copyrighted character art is reproduced).
+Saturday-morning cartoon style: thick black outlines, offset drop shadows,
+checkerboard bumpers, plus simplified fan-art figures of Cartoon Network
+characters (see cn_characters.py), each matched to a project by its lore.
 Every card carries its own solid background, so one file works in GitHub's
 light and dark themes.
 
@@ -11,6 +11,8 @@ light and dark themes.
 from pathlib import Path
 from textwrap import wrap as twrap
 from xml.sax.saxutils import escape
+
+from cn_characters import ben, courage, darwin, dexter, edd, gumball, jack, ppg
 
 OUT = Path(__file__).resolve().parent.parent / "assets" / "cn"
 DISPLAY = "'Arial Black','Arial Bold',Impact,'Helvetica Neue',sans-serif"
@@ -76,8 +78,9 @@ def header():
     rays = []
     for i in range(16):
         rays.append(f'<path d="M0 0 L420 -40 L420 40 Z" fill="#fff3a0" opacity=".55" transform="rotate({i * 22.5})"/>')
-    o.append(f'<g transform="translate(170 165)"><g>{"".join(rays)}'
-             '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/></g></g>')
+    o.append(f'<clipPath id="hc0"><rect width="{w}" height="{h}" rx="22"/></clipPath>')
+    o.append(f'<g clip-path="url(#hc0)"><g transform="translate(170 165)"><g>{"".join(rays)}'
+             '<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/></g></g></g>')
     # checkerboard "KS" channel logo (original letters, CN-bumper style)
     lx, ly, s = 60, 70, 110
     o.append(f'<rect x="{lx + 8}" y="{ly + 8}" width="{s * 2}" height="{s * 2}" fill="{INK}"/>')
@@ -107,7 +110,7 @@ def header():
 
 
 # ----------------------------------------------------------------------------- motifs
-def motif_flask():  # Friday — Dexter's Lab
+def motif_flask():  # Friday: Dexter's Lab
     bubbles = "".join(
         f'<circle cx="{cx}" cy="0" r="{r}" fill="#ffffff" stroke="{INK}" stroke-width="2">'
         f'<animate attributeName="cy" values="40;-60" dur="{d}s" begin="{b}s" repeatCount="indefinite"/>'
@@ -124,7 +127,7 @@ def motif_flask():  # Friday — Dexter's Lab
             f'<rect x="-22" y="-38" width="44" height="10" rx="3" fill="#ffffff" stroke="{INK}" stroke-width="4"/>')
 
 
-def motif_plate():  # Irontronics — Samurai Jack
+def motif_plate():  # Irontronics: Samurai Jack
     holes = "".join(f'<circle cx="{x}" cy="{y}" r="9" fill="#2b2b2b" stroke="{INK}" stroke-width="3"/>'
                     for x, y in [(-38, -30), (38, -30), (-38, 30), (38, 30)])
     return (f'<rect x="-62" y="-52" width="124" height="104" rx="10" fill="#c9d1d9" stroke="{INK}" stroke-width="4"/>'
@@ -136,7 +139,7 @@ def motif_plate():  # Irontronics — Samurai Jack
             + T(0, 96, "± mm", 13, INK, 900, "middle", DISPLAY))
 
 
-def motif_dial():  # Logic Play — Ben 10
+def motif_dial():  # Logic Play: Ben 10
     ticks = "".join(f'<rect x="-3" y="-60" width="6" height="12" fill="{INK}" transform="rotate({i * 45})"/>' for i in range(8))
     return (f'<rect x="-70" y="-22" width="140" height="44" rx="10" fill="#2b2b2b" stroke="{INK}" stroke-width="4"/>'
             f'<circle r="56" fill="#1e1e1e" stroke="{INK}" stroke-width="4"/>'
@@ -145,7 +148,7 @@ def motif_dial():  # Logic Play — Ben 10
             + T(0, 9, "{ }", 26, INK, 900, "middle", DISPLAY))
 
 
-def motif_house():  # Debug Odyssey — Courage the Cowardly Dog
+def motif_house():  # Debug Odyssey: Courage the Cowardly Dog
     return (f'<circle cx="34" cy="-44" r="30" fill="#fff6c9" stroke="{INK}" stroke-width="3"/>'
             f'<path d="M-80 54 Q0 2 80 54 Z" fill="#6b3fa0" stroke="{INK}" stroke-width="4"/>'
             f'<path d="M-30 34 V2 L-6 -18 L18 2 V34 Z" fill="#f2e6c9" stroke="{INK}" stroke-width="3.5"/>'
@@ -157,7 +160,7 @@ def motif_house():  # Debug Odyssey — Courage the Cowardly Dog
             + '<animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="2s" repeatCount="indefinite"/></g></g>')
 
 
-def motif_search():  # Lost & Found Hub — Ed, Edd n Eddy
+def motif_search():  # Lost & Found Hub: Ed, Edd n Eddy
     return (f'<rect x="-58" y="-30" width="76" height="70" rx="6" fill="#d9a066" stroke="{INK}" stroke-width="4"/>'
             f'<path d="M-58 -10 H18" stroke="{INK}" stroke-width="3"/>'
             + T(-20, 30, "?", 40, "#ffffff", 900, "middle", DISPLAY,
@@ -171,8 +174,8 @@ def motif_search():  # Lost & Found Hub — Ed, Edd n Eddy
 
 
 # ----------------------------------------------------------------------------- episode cards
-def card(ep, when, title, vibe, body, stack, bg, accent, motif, title_fill="#ffffff"):
-    w = 480
+def card(ep, when, title, vibe, body, stack, bg, accent, motif, char, char_scale=1.2, title_fill="#ffffff"):
+    w, pad = 480, 122
     lines = []
     for para in body:
         lines += twrap(para, 36)
@@ -187,48 +190,48 @@ def card(ep, when, title, vibe, body, stack, bg, accent, motif, title_fill="#fff
          f'<path d="M0 46 H{w}" stroke="{INK}" stroke-width="4"/></g>',
          T(24, 31, f"EP. {ep}", 16, "#ffffff", 900, family=DISPLAY, extra=f'stroke="{INK}" stroke-width="3" paint-order="stroke"'),
          T(100, 30, when, 12, "#ffffff", 700, extra=f'stroke="{INK}" stroke-width="2.5" paint-order="stroke"'),
-         checker(w - 66, 13, 2, 1, 20),
-         f'<rect x="{w - 66}" y="13" width="40" height="20" fill="none" stroke="{INK}" stroke-width="2.5"/>',
          outlined(22, 96, title, 30, title_fill, sw=5, shadow=True),
          T(24, 122, vibe, 12.5, INK, 700, extra='font-style="italic"')]
     o += [T(24, y_body + i * 20, ln, 13, INK) for i, ln in enumerate(lines)]
     o.append(f'<g transform="translate(376 {178 if len(lines) < 5 else 186}) scale(.82)">{motif}</g>')
     o.append(chip_svg)
-    return svg(w, h, "".join(o))
+    # character stands on the header bar's bottom edge and pops out above the card
+    o.append(f'<g transform="translate({w - 92} 46) scale({char_scale})">{char}</g>')
+    return svg(w, h + pad, f'<g transform="translate(0 {pad})">{"".join(o)}</g>')
 
 
 CARDS = {
     "ep-irontronics": dict(
-        ep="01", when="MAY 2026 – NOW", title="Irontronics",
-        vibe="Intern · Samurai Jack-grade precision",
+        ep="01", when="MAY 2026 - NOW", title="Irontronics",
+        vibe="Jack cuts robots. This measures metal.",
         body=["Scans metal part outlines and bolt-hole positions from camera frames with contour tracing and binary segmentation, hitting millimetre-level accuracy via pixel-to-mm calibration."],
         stack=["Python", "JavaScript", "TypeScript", "React", "Canvas API", "WebRTC", "Blob API", "HTML", "CSS3"],
-        bg="#ffe1e1", accent="#e0242f", motif=motif_plate()),
+        bg="#ffe1e1", accent="#e0242f", motif=motif_plate(), char=jack()),
     "ep-logicplay": dict(
-        ep="02", when="NOV 2026 – NOW", title="Logic Play",
-        vibe="Core Member · it's hero time (Ben 10)",
+        ep="02", when="NOV 2026 - NOW", title="Logic Play",
+        vibe="Omnitrix logic: right alien, right job",
         body=["Builds and optimises interactive features, algorithms and logic systems for club projects and event platforms.",
               "Debugs, tests and deploys with cross-functional teams."],
         stack=["Algorithms", "Logic systems", "Testing", "Deployment"],
-        bg="#dcffe4", accent="#1a9e3f", motif=motif_dial()),
+        bg="#dcffe4", accent="#1a9e3f", motif=motif_dial(), char=ben()),
     "ep-friday": dict(
         ep="03", when="AUG 2026", title="Friday",
-        vibe="“Computer!” — very Dexter's Lab",
+        vibe="A Computer you talk to, Dexter-style",
         body=["A voice-controlled desktop assistant, inspired by Iron Man, that automates everyday computer tasks through hands-free commands."],
         stack=["Python", "LLM API", "VOSK", "faster-whisper", "PySide6", "PyQt", "pyttsx3"],
-        bg="#e3f1ff", accent="#1f6fd1", motif=motif_flask()),
+        bg="#e3f1ff", accent="#1f6fd1", motif=motif_flask(), char=dexter()),
     "ep-debugodyssey": dict(
         ep="04", when="SEP 2026", title="Debug Odyssey",
-        vibe="Errors so scary, Courage would bolt",
+        vibe="Every error is a monster. Be Courage.",
         body=["A story-driven full-stack Ed-Tech platform that teaches beginners to read, decode and fix compiler errors across five languages."],
         stack=["FastAPI", "Monaco Editor", "Python", "JS", "Java", "C++", "Docker", "Vercel", "Cloud Run"],
-        bg="#efe3ff", accent="#7a3fc2", motif=motif_house()),
+        bg="#efe3ff", accent="#7a3fc2", motif=motif_house(), char=courage()),
     "ep-lostfound": dict(
         ep="05", when="NOV 2026", title="Lost & Found",
-        vibe="Everything labelled, Double D-style",
+        vibe="Labelled like everything in Edd's room",
         body=["A full-stack campus portal where students report, search, claim and recover items, with real-time private chat."],
         stack=["Node.js", "Express", "Socket.io", "PostgreSQL", "Supabase", "Tailwind", "EJS", "bcrypt", "Helmet", "Sharp", "Render"],
-        bg="#fff6c9", accent="#e08a00", motif=motif_search()),
+        bg="#fff6c9", accent="#e08a00", motif=motif_search(), char=edd(), char_scale=1.12),
 }
 
 
@@ -283,8 +286,30 @@ def skills():
     head = [f'<rect x="10" y="10" width="{w - 16}" height="{h - 16}" rx="22" fill="{INK}"/>',
             f'<rect x="3" y="3" width="{w - 16}" height="{h - 16}" rx="20" fill="#fff8fc" stroke="{INK}" stroke-width="5"/>',
             outlined(36, 76, "THE POWERPUFF FORMULA", 40, "#ff6fb5", sw=6),
-            T(40, 108, "Sugar (languages) + spice (frameworks) + everything nice (libraries) + a dash of Chemical X (tools & tech)", 13, INK, 700)]
+            T(40, 108, "Professor Utonium's recipe: sugar, spice, everything nice, and Chemical X", 13, INK, 700)]
+    girls = [("blossom", 742, 100), ("bubbles", 836, 114), ("buttercup", 928, 98)]
+    for k, (name, x, y) in enumerate(girls):
+        head.append(f'<g transform="translate({x} {y})"><g transform="rotate(-8) scale(1.15)">{ppg(name)}</g>'
+                    f'<animateTransform attributeName="transform" type="translate" additive="sum" '
+                    f'values="0 0;0 -6;0 0" dur="{1.8 + k * .3}s" repeatCount="indefinite"/></g>')
     return svg(w, h, "".join(head + o))
+
+
+# ----------------------------------------------------------------------------- education banner
+def education():
+    w, h = 1000, 200
+    o = [f'<rect x="10" y="10" width="{w - 16}" height="{h - 16}" rx="22" fill="{INK}"/>',
+         f'<rect x="3" y="3" width="{w - 16}" height="{h - 16}" rx="20" fill="#ffe9b8" stroke="{INK}" stroke-width="5"/>',
+         f'<rect x="30" y="26" width="660" height="138" rx="10" fill="#8a5a2b" stroke="{INK}" stroke-width="4"/>',
+         f'<rect x="44" y="38" width="632" height="114" rx="4" fill="#2f5d3a" stroke="{INK}" stroke-width="3"/>',
+         T(72, 98, "ORIGIN STORY", 46, "#f4f4ec", 900, family=DISPLAY, extra='opacity=".92"'),
+         T(74, 132, "Education, the Elmore Junior High way", 15, "#d9e8d2", 700),
+         f'<path d="M600 128 Q620 112 642 126" stroke="#f4f4ec" stroke-width="3" fill="none" opacity=".7"/>',
+         f'<rect x="560" y="158" width="44" height="8" rx="2" fill="#f4f4ec" {""}stroke="{INK}" stroke-width="2"/>',
+         f'<path d="M3 {h - 30} H{w - 13}" stroke="{INK}" stroke-width="3"/>',
+         f'<g transform="translate(800 {h - 30}) scale(1.25)">{gumball()}</g>',
+         f'<g transform="translate(910 {h - 30}) scale(1.25)">{darwin()}</g>']
+    return svg(w, h, "".join(o))
 
 
 # ----------------------------------------------------------------------------- footer bumper
@@ -303,7 +328,7 @@ def footer():
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    files = {"header.svg": header(), "skills.svg": skills(), "footer.svg": footer()}
+    files = {"header.svg": header(), "skills.svg": skills(), "education.svg": education(), "footer.svg": footer()}
     for name, kw in CARDS.items():
         files[f"{name}.svg"] = card(**kw)
     for name, s in files.items():
