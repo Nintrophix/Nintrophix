@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" width="600" height="260" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace">
+<defs>
+  <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#10294a" stroke-width="1"/></pattern>
+  <pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g)"/><path d="M100 0H0V100" fill="none" stroke="#163659" stroke-width="1"/></pattern>
+  <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2L10 5L0 8z" fill="#ffb454"/></marker>
+</defs>
+<rect width="600" height="260" rx="10" fill="#0a1a2f"/>
+<rect x="10" y="10" width="580" height="240" fill="url(#G)" stroke="#9fd8ff" stroke-width="1.6"/>
+<path d="M10 40H590" stroke="#9fd8ff" stroke-width=".8"/>
+<circle cx="32" cy="25" r="9" fill="none" stroke="#ffb454" stroke-width="1.4"/>
+<text x="32" y="29" font-size="11" font-weight="700" fill="#ffb454" text-anchor="middle" letter-spacing="0" >C</text>
+<text x="50" y="29" font-size="11" font-weight="400" fill="#6f8fb5" text-anchor="start" letter-spacing="2" >DETAIL C</text>
+<text x="574" y="29" font-size="11" font-weight="400" fill="#6f8fb5" text-anchor="end" letter-spacing="2" >SCALE 2 : 1</text>
+<text x="30" y="86" font-size="28" font-weight="800" fill="#e8f2ff" text-anchor="start" letter-spacing="1.5" >LOST &amp; FOUND HUB</text>
+<text x="30" y="118" font-size="13.5" font-weight="400" fill="#e8f2ff" text-anchor="start" letter-spacing="0" >Campus portal to report, search, claim</text>
+<text x="30" y="139" font-size="13.5" font-weight="400" fill="#e8f2ff" text-anchor="start" letter-spacing="0" >and recover items — with real-time</text>
+<text x="30" y="160" font-size="13.5" font-weight="400" fill="#e8f2ff" text-anchor="start" letter-spacing="0" >private chat between students.</text>
+<path d="M30 196H570" stroke="#6f8fb5" stroke-dasharray="2 4"/>
+<text x="30" y="220" font-size="12" font-weight="700" fill="#ffb454" text-anchor="start" letter-spacing="0" >Node · Express · Socket.io · Supabase</text>
+<text x="30" y="238" font-size="10" font-weight="400" fill="#6f8fb5" text-anchor="start" letter-spacing="1.5" >◆ LIVE ON RENDER</text>
+<g transform="translate(20 6)"><path d="M420 74h88l34 34-34 34h-88z" fill="none" stroke="#9fd8ff" stroke-width="2.2" transform="rotate(-12 470 108)"/>
+<circle cx="510" cy="100" r="7" fill="none" stroke="#9fd8ff" stroke-width="2"/>
+<path d="M517 98c22-6 30-26 22-40" fill="none" stroke="#9fd8ff" stroke-width="1.6" stroke-dasharray="3 3"/>
+<path d="M434 110h44M438 124h28" stroke="#ffb454" stroke-width="2" transform="rotate(-12 470 108)"/>
+<path d="M430 160h18m-9-9v18" stroke="#ffb454" stroke-width="1.6"/><circle cx="439" cy="160" r="5" fill="none" stroke="#ffb454"/></g>
+</svg>

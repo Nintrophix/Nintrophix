@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 328" width="1200" height="328" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace">
+<defs>
+  <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#ebe4d3" stroke-width="1"/></pattern>
+  <pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g)"/><path d="M100 0H0V100" fill="none" stroke="#ddd3bd" stroke-width="1"/></pattern>
+  <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2L10 5L0 8z" fill="#c2410c"/></marker>
+</defs>
+<rect width="1200" height="328" rx="10" fill="#f5f1e6"/>
+<rect x="10" y="10" width="1180" height="308" fill="url(#G)" stroke="#1d2733" stroke-width="1.6"/>
+<text x="30" y="42" font-size="14" font-weight="800" fill="#1d2733" text-anchor="start" letter-spacing="3" >MATERIAL SPECIFICATION</text>
+<text x="1170" y="42" font-size="11" font-weight="400" fill="#857a66" text-anchor="end" letter-spacing="2" >PARTS LIST · TABLE 1</text>
+<rect x="30" y="64" width="1140" height="238" fill="#f5f1e6" stroke="#1d2733" stroke-width="1.4"/>
+<path d="M90 64v238" stroke="#1d2733" stroke-width=".8"/>
+<path d="M290 64v238" stroke="#1d2733" stroke-width=".8"/>
+<path d="M1060 64v238" stroke="#1d2733" stroke-width=".8"/>
+<text x="42" y="86" font-size="10" font-weight="700" fill="#857a66" text-anchor="start" letter-spacing="2" >ITEM</text>
+<text x="102" y="86" font-size="10" font-weight="700" fill="#857a66" text-anchor="start" letter-spacing="2" >DESIGNATION</text>
+<text x="302" y="86" font-size="10" font-weight="700" fill="#857a66" text-anchor="start" letter-spacing="2" >SPECIFICATION</text>
+<text x="1072" y="86" font-size="10" font-weight="700" fill="#857a66" text-anchor="start" letter-spacing="2" >QTY</text>
+<path d="M30 98H1170" stroke="#1d2733" stroke-width="1.2"/>
+<text x="60" y="120" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >01</text>
+<text x="102" y="120" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >LANGUAGES</text>
+<text x="302" y="120" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >Python · TypeScript · JavaScript · C · Rust · SQL · HTML/CSS</text>
+<text x="1072" y="120" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >7</text>
+<path d="M30 132H1170" stroke="#1d2733" stroke-width="0.5"/>
+<text x="60" y="154" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >02</text>
+<text x="102" y="154" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >WEB / API</text>
+<text x="302" y="154" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >React · Node.js · Express · FastAPI · Django · Flask · Tailwind</text>
+<text x="1072" y="154" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >7</text>
+<path d="M30 166H1170" stroke="#1d2733" stroke-width="0.5"/>
+<text x="60" y="188" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >03</text>
+<text x="102" y="188" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >ML / VISION</text>
+<text x="302" y="188" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >NumPy · Pandas · scikit-learn · XGBoost · CatBoost · OpenCV</text>
+<text x="1072" y="188" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >6</text>
+<path d="M30 200H1170" stroke="#1d2733" stroke-width="0.5"/>
+<text x="60" y="222" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >04</text>
+<text x="102" y="222" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >REAL-TIME</text>
+<text x="302" y="222" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >Socket.io · WebSockets · WebRTC · Canvas API · ntfy</text>
+<text x="1072" y="222" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >5</text>
+<path d="M30 234H1170" stroke="#1d2733" stroke-width="0.5"/>
+<text x="60" y="256" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >05</text>
+<text x="102" y="256" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >DATA</text>
+<text x="302" y="256" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >PostgreSQL · Supabase · SQLite · MS SQL Server · Full-Text Search</text>
+<text x="1072" y="256" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >5</text>
+<path d="M30 268H1170" stroke="#1d2733" stroke-width="0.5"/>
+<text x="60" y="290" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >06</text>
+<text x="102" y="290" font-size="12" font-weight="700" fill="#1d2733" text-anchor="start" letter-spacing="1" >SHIP</text>
+<text x="302" y="290" font-size="13" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >Docker · Git · Vercel · Render · Netlify · Google Cloud Run · Vite</text>
+<text x="1072" y="290" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >7</text>
+</svg>

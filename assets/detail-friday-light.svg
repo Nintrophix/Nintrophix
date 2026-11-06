@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" width="600" height="260" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace">
+<defs>
+  <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#ebe4d3" stroke-width="1"/></pattern>
+  <pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g)"/><path d="M100 0H0V100" fill="none" stroke="#ddd3bd" stroke-width="1"/></pattern>
+  <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2L10 5L0 8z" fill="#c2410c"/></marker>
+</defs>
+<rect width="600" height="260" rx="10" fill="#f5f1e6"/>
+<rect x="10" y="10" width="580" height="240" fill="url(#G)" stroke="#1d2733" stroke-width="1.6"/>
+<path d="M10 40H590" stroke="#1d2733" stroke-width=".8"/>
+<circle cx="32" cy="25" r="9" fill="none" stroke="#c2410c" stroke-width="1.4"/>
+<text x="32" y="29" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >B</text>
+<text x="50" y="29" font-size="11" font-weight="400" fill="#857a66" text-anchor="start" letter-spacing="2" >DETAIL B</text>
+<text x="574" y="29" font-size="11" font-weight="400" fill="#857a66" text-anchor="end" letter-spacing="2" >SCALE 2 : 1</text>
+<text x="30" y="86" font-size="28" font-weight="800" fill="#1d2733" text-anchor="start" letter-spacing="1.5" >FRIDAY</text>
+<text x="30" y="118" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >Voice-controlled desktop assistant —</text>
+<text x="30" y="139" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >hands-free commands that automate</text>
+<text x="30" y="160" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >everyday tasks on your computer.</text>
+<path d="M30 196H570" stroke="#857a66" stroke-dasharray="2 4"/>
+<text x="30" y="220" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >Python · LLM API · faster-whisper · PySide6</text>
+<text x="30" y="238" font-size="10" font-weight="400" fill="#857a66" text-anchor="start" letter-spacing="1.5" >◆ OFFLINE STT VIA VOSK</text>
+<g transform="translate(20 6)"><rect x="455" y="58" width="44" height="78" rx="22" fill="none" stroke="#1d2733" stroke-width="2"/>
+<path d="M440 112a37 37 0 0 0 74 0M477 149v22M457 171h40" fill="none" stroke="#1d2733" stroke-width="2"/>
+<path d="M392 104h14l6-18 8 40 8-58 8 70 7-46 6 22h12M508 104h12l6-14 7 28 8-40 7 46 6-20h14" fill="none" stroke="#c2410c" stroke-width="1.6"/></g>
+</svg>

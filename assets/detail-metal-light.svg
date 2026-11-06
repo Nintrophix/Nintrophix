@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" width="600" height="260" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace">
+<defs>
+  <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#ebe4d3" stroke-width="1"/></pattern>
+  <pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g)"/><path d="M100 0H0V100" fill="none" stroke="#ddd3bd" stroke-width="1"/></pattern>
+  <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 2L10 5L0 8z" fill="#c2410c"/></marker>
+</defs>
+<rect width="600" height="260" rx="10" fill="#f5f1e6"/>
+<rect x="10" y="10" width="580" height="240" fill="url(#G)" stroke="#1d2733" stroke-width="1.6"/>
+<path d="M10 40H590" stroke="#1d2733" stroke-width=".8"/>
+<circle cx="32" cy="25" r="9" fill="none" stroke="#c2410c" stroke-width="1.4"/>
+<text x="32" y="29" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle" letter-spacing="0" >D</text>
+<text x="50" y="29" font-size="11" font-weight="400" fill="#857a66" text-anchor="start" letter-spacing="2" >DETAIL D</text>
+<text x="574" y="29" font-size="11" font-weight="400" fill="#857a66" text-anchor="end" letter-spacing="2" >SCALE 2 : 1</text>
+<text x="30" y="86" font-size="28" font-weight="800" fill="#1d2733" text-anchor="start" letter-spacing="1.5" >METAL SCANNER</text>
+<text x="30" y="118" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >Measures metal part outlines &amp; bolt-hole</text>
+<text x="30" y="139" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >positions from camera frames with</text>
+<text x="30" y="160" font-size="13.5" font-weight="400" fill="#1d2733" text-anchor="start" letter-spacing="0" >contour tracing — mm-level accuracy.</text>
+<path d="M30 196H570" stroke="#857a66" stroke-dasharray="2 4"/>
+<text x="30" y="220" font-size="12" font-weight="700" fill="#c2410c" text-anchor="start" letter-spacing="0" >TypeScript · React · Canvas · WebRTC</text>
+<text x="30" y="238" font-size="10" font-weight="400" fill="#857a66" text-anchor="start" letter-spacing="1.5" >◆ BUILT AT IRONTRONICS</text>
+<g transform="translate(20 6)"><g transform="translate(-14 0)"><path d="M396 66h168v16H396zM406 82v62l12 12V82M554 82v62l-12 12V82" fill="none" stroke="#1d2733" stroke-width="2"/>
+<rect x="430" y="94" width="100" height="50" rx="6" fill="none" stroke="#1d2733" stroke-width="2"/>
+<circle cx="452" cy="119" r="8" fill="none" stroke="#1d2733" stroke-width="1.6"/><circle cx="508" cy="119" r="8" fill="none" stroke="#1d2733" stroke-width="1.6"/>
+<path d="M432 164H528" stroke="#c2410c" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="480" y="180" font-size="10" fill="#c2410c" text-anchor="middle">100.00 ±0.5</text></g></g>
+</svg>
